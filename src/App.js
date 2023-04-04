@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
 
 function App() {
+
+  const options = {
+    method: 'GET',
+    url: 'https://twinword-word-association-quiz.p.rapidapi.com/type1/',
+    params: {level: '3', area: 'sat'},
+    headers: {
+      'X-RapidAPI-Key': '5f86cbe8c9msh6be1db6177699c4p181934jsn15e3b99f4a84',
+      'X-RapidAPI-Host': 'twinword-word-association-quiz.p.rapidapi.com'
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        Learn React
+        This is my GHW APP
     </div>
   );
 }
